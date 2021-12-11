@@ -133,7 +133,7 @@ def main():
     parser.add_argument('--model_config', default='config/model_config_small.json', type=str, required=False,
                         help='模型参数')
     parser.add_argument('--tokenizer_path', default='cache/vocab_small.txt', type=str, required=False, help='词表路径')
-    parser.add_argument('--model_path', default='model/final_model', type=str, required=False, help='模型路径')
+    parser.add_argument('--model_path', default='model/gpt2_sanwen', type=str, required=False, help='模型路径')
     parser.add_argument('--prefix', default='萧炎', type=str, required=False, help='生成文章的开头')
     parser.add_argument('--no_wordpiece', action='store_true', help='不做word piece切词')
     parser.add_argument('--segment', action='store_true', help='中文以词为单位')
@@ -144,7 +144,7 @@ def main():
 
     args = parser.parse_args()
     print('args:\n' + args.__repr__())
-
+##python ./generate.py --length=50 --nsamples=4 --prefix="我从来没有这么恨过一个人，" --fast_pattern --save_samples --save_samples_path=/mnt/xx
     if args.segment:
         from tokenizations import tokenization_bert_word_level as tokenization_bert
     else:
